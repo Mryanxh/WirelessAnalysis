@@ -1,0 +1,24 @@
+﻿<Window x:Class="WirelessAnalysis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WirelessAnalysis"
+        mc:Ignorable="d"
+        Title="无线网络检测工具" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="Top" Grid.Row="0" MaxHeight="30" Height="30" MinHeight="30" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Name="combox_Device" Grid.Column="0" DataContext="{Binding Path=ComBoxDevice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></ComboBox>
+            <Button Name="btn_StartScan" Grid.Column="1" Content="开始扫描" Width="80" MaxWidth="80" MinWidth="80" Command="{Binding Path=StartScanCommand}" HorizontalAlignment="Right"></Button>
+        </Grid>
+        <Grid Name="listbox_ScanDetail" Grid.Row="1" DataContext="{Binding Path=ScanDatail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></Grid>
+    </Grid>
+</Window>
